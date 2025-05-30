@@ -34,6 +34,15 @@ jobs:
           python -m pip install --upgrade pip
           pip install pytest
       
+      - name: Run generate.py
+        run: |
+          python generate.py
+      
+      # Run csvtojson.py to convert CSV to JSON
+      - name: Run csvtojson.py
+        run: |
+          python csvtojson.py
+          
       # Run tests
       - name: Run tests
         run: |
