@@ -33,7 +33,7 @@ jobs:
       # Run tests (pytest will fail if any test fails)
       - name: Run tests
         run: |
-          pytest
+          python run_tests.py
       
       # Copy files to dist (for GitHub Pages)
       - name: Copy to dist

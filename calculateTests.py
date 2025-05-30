@@ -42,5 +42,5 @@ class TestBeer(unittest.TestCase):
         # ASSERT
         self.assertFalse(c)
 
-if __name__ == '__main__':
-    unittest.main()        
+#if __name__ == '__main__':
+#    unittest.main()        
