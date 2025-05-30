@@ -51,7 +51,11 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: 'dist'
-          
-      - name: Deploy to GitHub Pages
+        
+      - name: Deploy to Github Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with: 
+          token: ${{ secrets.GITHUB_TOKEN }}
+          environment: 
+          name: github-pages
