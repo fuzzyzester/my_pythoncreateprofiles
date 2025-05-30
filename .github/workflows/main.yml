@@ -9,12 +9,12 @@ permissions:
   id-token: write
   pages: write
   contents: read
-  
+
 jobs:
   build:
     runs-on: ubuntu-latest
-    
-    steps:    
+
+    steps:
       # Checkout repo
       - uses: actions/checkout@v3
       
@@ -30,30 +30,30 @@ jobs:
           python -m pip install --upgrade pip
           pip install pytest
       
-      # Run tests (pytest will fail if any test fails)
+      # Run tests
       - name: Run tests
         run: |
           python run_tests.py
       
-      # Copy files to dist (for GitHub Pages)
+      # Copy files to dist
       - name: Copy to dist
         run: |
           mkdir dist
           cp index.html dist/index.html
           cp data.json dist/data.json
           cp script.js dist/script.js
-
+      
       # Setup Pages and deploy
       - name: Setup Pages
         uses: actions/configure-pages@v5
-        
+      
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: 'dist'
-        
-      - name: Deploy to Github Pages
+      
+      - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        with: 
+        with:
           token: ${{ secrets.GITHUB_TOKEN }}
